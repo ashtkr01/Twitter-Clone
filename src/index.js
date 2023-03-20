@@ -17,7 +17,7 @@ app.listen(3000 , async () => {
     console.log("Database has been connected");
 
     //Update by repository:
-    // const tweetRepo = new TweetRepository();
+    const tweetRepo = new TweetRepository();
     // //update:
     // const tweet = await tweetRepo.update('64170a101ec633307c91e90d',
     //                       {userEmail : 'sangha@gmail.com'});
@@ -39,6 +39,8 @@ app.listen(3000 , async () => {
     // const tweet = await tweetRepo.get('64172244681fcb4885fc3430');
     // const tweet = await tweetRepo.getByComments('64174211a50d00f10ce082ee');
 
+    // const tweet = await tweetRepo.getAll(0 , 2);
+
     // const tweet = await Tweet.findById('64174266b0e15713742107e8').populate('comments');
 
     // const tweet = await tweetRepo.destroy('64172244681fcb4885fc3430');
@@ -55,8 +57,10 @@ app.listen(3000 , async () => {
 
 
     //Update Tweet:
-    // const tweet = await Tweet.findById('641709c679d7ccdec29ae6a9');
+    const tweet = await Tweet.findById('64174169b09c4e14bbcdd8fc');
     // tweet.userEmail = 'pratap@gmail.com';
-    // await tweet.save;
-    // console.log(tweet); 
+    // await tweet.save();
+    // console.log(tweet[1].Email_id_associated_with_content); 
+    console.log(tweet.Email_id_associated_with_content);
+    console.log(tweet);
 });

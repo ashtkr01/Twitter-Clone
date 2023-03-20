@@ -12,7 +12,8 @@ class TweetRepository{
 
     async getByComments(id){
         try {
-            const tweet = await Tweet.findById(id).populate({path : 'comments'});
+            //Use lean() in order to return a javascript object:
+            const tweet = await Tweet.findById(id).populate({path : 'comments'}).lean();
             return tweet;
         } catch (error) {
             console.log(error);
@@ -21,12 +22,13 @@ class TweetRepository{
 
     async get(id){
         try {
-            const tweet = await Tweet.findById(id);
+            const tweet = await Tweet.findById(id).lean();
             return tweet;
         } catch (error) {
             console.log(error);
         }
     }
+
     async update(id , data){
         try {
             const tweet = await Tweet.findByIdAndUpdate(id , data , {new : 'true'});
@@ -35,10 +37,20 @@ class TweetRepository{
             console.log(error);
         }
     }
+    
     async destroy(id){
         try {
             const response = await Tweet.findByIdAndRemove(id);
             return response;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getAll(offset , limit){
+        try {
+            const tweet = await Tweet.find().skip(offset).limit(limit);
+            return tweet;
         } catch (error) {
             console.log(error);
         }
