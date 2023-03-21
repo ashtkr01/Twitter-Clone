@@ -57,10 +57,13 @@ app.listen(3000 , async () => {
 
 
     //Update Tweet:
-    const tweet = await Tweet.findById('64174169b09c4e14bbcdd8fc');
+    // const tweet = await Tweet.findById('64174169b09c4e14bbcdd8fc');
     // tweet.userEmail = 'pratap@gmail.com';
     // await tweet.save();
     // console.log(tweet[1].Email_id_associated_with_content); 
-    console.log(tweet.Email_id_associated_with_content);
-    console.log(tweet);
+    // console.log(tweet.Email_id_associated_with_content);
+
+    //wuth Hook:
+    // const tweet = await tweetRepo.create({content : 'this is content'});
+    // console.log(tweet);
 });
